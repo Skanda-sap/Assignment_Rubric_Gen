@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Assignment Rubric Generator</title>
+</head>
+<body>
+    <h1>Upload Assignment Document</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf, .docx">
+        <input type="submit" value="Upload">
+    </form>
+    {% if text %}
+        <h2>Extracted Text:</h2>
+        <pre>{{ text }}</pre>
+        <h2>Suggested Rubric:</h2>
+        <ul>
+            {% for item in rubric %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Final Grade: {{ grade }}/10</h2>
+    {% endif %}
+</body>
+</html>
